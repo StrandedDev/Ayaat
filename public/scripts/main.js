@@ -1,6 +1,6 @@
 
+/************************************************************************/ 
 window.addEventListener("load", displayVerse);
-
 
 const verseContainer = document.getElementById("verse-container"),
       arabicTextContainer = document.getElementById("verse-text"), 
@@ -8,6 +8,25 @@ const verseContainer = document.getElementById("verse-container"),
       banglaTranslationContainer = document.getElementById("verse-translation-bangla"), 
       verseReferenceContainer = document.getElementById("verse-reference");
       
+      
+async function fetchVerseData(selectedVerse){
+    let url = `https://api.alquran.cloud/v1/ayah/${selectedVerse}/editions/quran-uthmani,en.sahih,bn.bengali`;
+          
+    try{
+        let response = await fetch(url);
+        if(!response.ok){
+            throw new Error(`HTTP error! status: ${response.status}`);
+            }
+      
+        const resData = await response.json();
+        return resData.data; // retuns number of ayahs in selectedSurah
+      
+    }
+    catch(error){
+        console.error("Unexpected Error :", error);
+        return;
+    }
+}
 
 async function displayVerse(){
     verseContainer.animate([
@@ -22,8 +41,7 @@ async function displayVerse(){
         fill: 'forwards',
     });
 
-    let totalVerses = 6236;
-    let selectedVerse = Math.floor(Math.random() * totalVerses) + 1;
+    let selectedVerse = Math.floor(Math.random() * 6236) + 1;
 
     let verseData = await fetchVerseData(selectedVerse);
 
@@ -37,28 +55,36 @@ async function displayVerse(){
 
 
 
-async function fetchVerseData(selectedVerse){
-    let url = `https://api.alquran.cloud/v1/ayah/${selectedVerse}/editions/quran-uthmani,en.sahih,bn.bengali`;
-    
-    try{
+// Change verse handler 
+verseContainer.addEventListener('click', displayVerse)
 
-        let response = await fetch(url);
-        if(!response.ok){
-            throw new Error(`HTTP error! status: ${response.status}`);
+/*************************************************************************/ 
+
+const drawerContainer = document.getElementById('drawer-container'),
+      drawerToggle = document.getElementById('drawer-toggle');
+
+document.addEventListener('DOMContentLoaded', function (){
+    // handle drawer open and close 
+    drawerToggle.addEventListener('click', () => {
+
+        drawerContainer.style.transition = 'height 0.3s cubic-bezier(.32,.67,.31,1.05)';
+       
+        if(drawerContainer.style.height !== '80dvh'){
+            // opened state
+            drawerContainer.style.height = '80dvh';
+            drawerToggle.classList.remove('-top-10');
+            drawerToggle.classList.remove('animate-bounce')
+            drawerToggle.style.transform = 'rotate(180deg)';
+        }
+        else{
+            drawerContainer.style.height = '0dvh';
+            drawerToggle.classList.add('-top-10');
+            drawerToggle.classList.add('animate-bounce')
+            drawerToggle.style.transform = 'rotate(0deg)';
         }
 
-        const resData = await response.json();
-        return resData.data; // retuns number of ayahs in selectedSurah
-
-    }
-    catch(error){
-        console.error("Unexpected Error :", error);
-        return;
-    }
-}
+    });
 
 
-
-// Click handler 
-
-verseContainer.addEventListener('click', displayVerse)
+    
+})
