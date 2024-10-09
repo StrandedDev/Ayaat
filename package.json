@@ -1,0 +1,20 @@
+{
+  "name": "ayaat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "dev": "tailwindcss -i ./src/source.css -o ./public/styles/styles.css --watch",
+    "minify": "npx tailwindcss -o ./public/styles/styles.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "vite": "^5.4.8"
+  }
+}
