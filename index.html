@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,25 @@
     <link rel="icon" type="image/png" href="/public/images/favicon.png">
     <link rel="stylesheet" href="/public/styles/styles.css">
 </head>
-<body>
+<body class="bg-zinc-900 h-[100dvh] overflow-hidden" id="particles-container">
 
 
-
+<!-- Verse Display -->
+<div id="verse-container" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 px-9 cursor-pointer lg:max-w-[900px]">
+    <div id="verse-text" class="text-white font-arabic text-2xl leading-relaxed md:text-5xl md:leading-loose lg:text-5xl lg:leading-relaxed" dir="rtl">
+        بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+    </div>
+    
+    <div id="verse-translations-container" class="mt-5">
+        <p id="verse-translation-english" class="text-gray-400 font-rubik text-sm md:text-lg lg:text-base text-justify"></p>
+        <p id="verse-translation-bangla" class="text-gray-400 font-bangla text-xs md:text-base lg:text-sm text-justify mt-1 md:mt-2"></p>
+    </div>
+    
+    <div id="verse-data" class="mt-1">
+        <span id="verse-reference" class="text-gray-300 font-rubik text-xs md:text-base lg:text-sm font-semibold uppercase md:mt-2"></span>
+    </div>
+</div>
+<!-- Verse Display -->
 
 
 
@@ -24,8 +39,7 @@
     <script src="/public/scripts/main.js"></script>
 
     <!-- Particles -->
-    <script src="/public/scripts/particles/app.js"></script>
     <script src="/public/scripts/particles/particles.js"></script>
-    <script src="/public/scripts/particles/particles_load.js"></script>
+    <script src="/public/scripts/particles/app.js"></script>
 </body>
 </html>
