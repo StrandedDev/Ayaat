@@ -1,4 +1,5 @@
 
+// Verse related functions and variables
 /************************************************************************/ 
 window.addEventListener("load", displayVerse);
 
@@ -53,22 +54,23 @@ async function displayVerse(){
     
 }
 
-
-
 // Change verse handler 
 verseContainer.addEventListener('click', displayVerse)
 
+
+
+// Drawer related functions and variables
 /*************************************************************************/ 
 
 const drawerContainer = document.getElementById('drawer-container'),
-      drawerToggle = document.getElementById('drawer-toggle');
+drawerToggle = document.getElementById('drawer-toggle');
 
 document.addEventListener('DOMContentLoaded', function (){
     // handle drawer open and close 
     drawerToggle.addEventListener('click', () => {
-
+        
         drawerContainer.style.transition = 'height 0.3s cubic-bezier(.32,.67,.31,1.05)';
-       
+        
         if(drawerContainer.style.height !== '80dvh'){
             // opened state
             drawerContainer.style.height = '80dvh';
@@ -82,9 +84,54 @@ document.addEventListener('DOMContentLoaded', function (){
             drawerToggle.classList.add('animate-bounce')
             drawerToggle.style.transform = 'rotate(0deg)';
         }
-
+        
     });
-
+    
 
     
 })
+
+
+
+
+// Save and download related functions and variables
+/*************************************************************************/ 
+
+
+const saveBtn = document.getElementById('save-btn'),
+shareBtn = document.getElementById('share-btn'),
+imagePreview = document.getElementById('verse-container-wrapper');   // body tag
+
+// Save button event listener
+saveBtn.addEventListener('click', function () {
+    downloadImage('png'); // jpeg/png
+});
+
+// image downloader function 
+function downloadImage(format) {
+    
+    domtoimage.toBlob(imagePreview, { quality: format === 'png' ? 1 : undefined }) // jpeg format will be 0.95
+    .then(function (blob) {
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `Ayaat_custom.${format}`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    })
+    .catch(function (error) {
+        console.error('Oops, something went wrong!', error);
+    });
+}
+
+
+
+
+
+
+// Changing background related functions 
+/*************************************************************************/ 
+
+function changeSolidBg(value){
+    imagePreview.style.backgroundColor = value;
+}
