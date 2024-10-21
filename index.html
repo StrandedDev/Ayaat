@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayaat</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/public/images/favicon.png">
+    <link rel="stylesheet" href="/public/styles/styles.css">
+</head>
+<body class="h-[100dvh] overflow-hidden bg-black">
+
+
+
+<!-- Toggle button for menu -->
+<nav class="absolute top-3 right-3">
+    <button class="w-6 h-6 relative flex justify-center items-center">
+        <span class="w-4 h-4 absolute inline-flex bg-green-500 rounded-full opacity-75 animate-ping"></span>
+        <span class="w-4 h-4 relative inline-flex bg-green-500 rounded-full"></span>
+    </button>
+</nav>
+<!-- Toggle button for menu -->
+
+
+
+<!-- Verse Display -->
+<section id="verse-container-wrapper" class="w-screen h-screen flex justify-center items-center">
+    <!-- Particle container -->
+    <div id="particles-container" class="w-screen h-screen absolute top-0 left-0"></div> 
+    <div id="verse-container" class="w-full z-10 px-4 cursor-pointer lg:max-w-[900px] lg:px-9 md:max-w-[600px]">
+        <div id="verse-text" class="font-arabic text-2xl leading-relaxed text-white lg:text-5xl lg:leading-relaxed md:text-5xl md:leading-loose" dir="rtl">
+            بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+        </div>
+        
+        <div id="verse-translations-container" class="mt-5">
+            <p id="verse-translation-english" class="font-rubik text-sm text-justify text-gray-400 lg:text-base md:text-lg"></p>
+            <p id="verse-translation-bangla" class="font-bangla mt-1 text-xs text-justify text-gray-400 lg:text-sm md:mt-2 md:text-base"></p>
+        </div>
+        
+        <div id="verse-data" class="mt-1">
+            <span id="verse-reference" class="font-rubik text-xs font-semibold text-gray-300 uppercase lg:text-sm md:mt-2 md:text-base"></span>
+        </div>
+    </div>
+</section>
+<!-- Verse Display -->
+
+
+
+<!-- Drawer -->
+<div id="drawer-container" class="max-w-[1200px] w-screen h-0 absolute bottom-0 left-0 z-20 block px-2 bg-zinc-900 rounded-tl-xl rounded-tr-xl md:-translate-x-1/2 md:left-1/2 md:px-4">
+       
+<!-- Drawer toggle buton -->
+<div class="text-center">
+    <button id="drawer-toggle" class="-top-10 relative px-12 py-2 animate-bounce">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#fff" class="size-6">
+            <path fill-rule="evenodd" d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z" clip-rule="evenodd" />
+        </svg>                              
+    </button>
+</div>
+<!-- Drawer toggle buton -->
+
+
+<!-- Drawer contents -->
+    <section class="flex flex-col items-start gap-3 md:flex-row">
+
+<!-- Save and share button container -->
+        <section class="w-full px-4 pt-2 pb-3 bg-zinc-800 rounded-md md:max-w-[300px]">
+            <h1 class="mb-3 text-sm text-gray-300">Export</h1>
+            <div class="flex justify-center items-center gap-4">
+                <button id="share-btn" class="w-[120px] flex justify-center items-center gap-4 py-2 font-semibold text-white bg-zinc-950 rounded-md">
+                    <p>Share</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                        <path d="M13 4.5a2.5 2.5 0 1 1 .702 1.737L6.97 9.604a2.518 2.518 0 0 1 0 .792l6.733 3.367a2.5 2.5 0 1 1-.671 1.341l-6.733-3.367a2.5 2.5 0 1 1 0-3.475l6.733-3.366A2.52 2.52 0 0 1 13 4.5Z" />
+                    </svg>
+                </button>
+                <button id="save-btn" class="w-[120px] flex justify-center items-center gap-4 py-2 font-semibold text-white bg-indigo-600 rounded-md">
+                    <p>Save</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                        <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z" />
+                        <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+<!-- Save and share button container -->
+
+
+<!-- Backgrounds -->
+        <section class="w-full px-4 py-2 bg-zinc-800 rounded-md md:max-w-fit">
+            <h1 class="mb-3 text-sm text-gray-300">Backgrounds</h1>
+<!-- Solid  backgrounds -->
+            <div class="py-1">
+                <h1 class="mb-2 text-xs text-gray-300">Solid</h1>
+                <div class="flex justify-between gap-2 py-2">
+                    <div class="border-r-[1px] w-full flex justify-start items-center gap-2 pr-2 border-dashed">
+                        <button onclick="changeSolidBg('#ffffff')" class="w-7 h-7 bg-white rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                        <button onclick="changeSolidBg('#000000')" class="w-7 h-7 bg-black rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                        <button onclick="changeSolidBg('#fae2d4')" class="bg-[#fae2d4] w-7 h-7 rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                        <button onclick="changeSolidBg('#8f7c9a')" class="bg-[#8f7c9a] w-7 h-7 rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                        <button onclick="changeSolidBg('#93caf8')" class="bg-[#93caf8] w-7 h-7 rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                        <button onclick="changeSolidBg('#002137')" class="bg-[#002137] w-7 h-7 rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                    </div>
+                    <div class="flex justify-between items-center gap-2">
+                        <button class="w-5 h-5 flex justify-center items-center bg-white rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-3">
+                                <path d="m13.28 7.78 3.22-3.22v2.69a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.69l-3.22 3.22a.75.75 0 0 0 1.06 1.06ZM2 17.25v-4.5a.75.75 0 0 1 1.5 0v2.69l3.22-3.22a.75.75 0 0 1 1.06 1.06L4.56 16.5h2.69a.75.75 0 0 1 0 1.5h-4.5a.747.747 0 0 1-.75-.75ZM12.22 13.28l3.22 3.22h-2.69a.75.75 0 0 0 0 1.5h4.5a.747.747 0 0 0 .75-.75v-4.5a.75.75 0 0 0-1.5 0v2.69l-3.22-3.22a.75.75 0 1 0-1.06 1.06ZM3.5 4.56l3.22 3.22a.75.75 0 0 0 1.06-1.06L4.56 3.5h2.69a.75.75 0 0 0 0-1.5h-4.5a.75.75 0 0 0-.75.75v4.5a.75.75 0 0 0 1.5 0V4.56Z" />
+                            </svg>
+                        </button>
+                        <button class="w-5 h-5 flex justify-center items-center bg-white rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
+                                <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+<!-- Solid backgrounds -->
+<!-- Gradient backgrounds -->
+            <div class="py-1">
+                <h1 class="mb-2 text-xs text-gray-300">Gradients</h1>
+                <div class="flex justify-between gap-2 py-2 lg:justify-between md:justify-start">
+                    <div class="border-r-[1px] w-full flex justify-start items-center gap-2 pr-2 border-dashed">
+                        <button class="from-indigo-600 to-pink-300 w-7 h-7 bg-gradient-to-br rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                        <button class="from-indigo-600 to-pink-300 w-7 h-7 bg-gradient-to-br rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                        <button class="from-indigo-600 to-pink-300 w-7 h-7 bg-gradient-to-br rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                        <button class="from-indigo-600 to-pink-300 w-7 h-7 bg-gradient-to-br rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                        <button class="from-indigo-600 to-pink-300 w-7 h-7 bg-gradient-to-br rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                        <button class="from-indigo-600 to-pink-300 w-7 h-7 bg-gradient-to-br rounded-full ring-indigo-500 duration-300 hover:ring-4"></button>
+                    </div>
+                    <div class="flex justify-between items-center gap-2">
+                        <button class="w-5 h-5 flex justify-center items-center bg-white rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-3">
+                                <path d="m13.28 7.78 3.22-3.22v2.69a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.69l-3.22 3.22a.75.75 0 0 0 1.06 1.06ZM2 17.25v-4.5a.75.75 0 0 1 1.5 0v2.69l3.22-3.22a.75.75 0 0 1 1.06 1.06L4.56 16.5h2.69a.75.75 0 0 1 0 1.5h-4.5a.747.747 0 0 1-.75-.75ZM12.22 13.28l3.22 3.22h-2.69a.75.75 0 0 0 0 1.5h4.5a.747.747 0 0 0 .75-.75v-4.5a.75.75 0 0 0-1.5 0v2.69l-3.22-3.22a.75.75 0 1 0-1.06 1.06ZM3.5 4.56l3.22 3.22a.75.75 0 0 0 1.06-1.06L4.56 3.5h2.69a.75.75 0 0 0 0-1.5h-4.5a.75.75 0 0 0-.75.75v4.5a.75.75 0 0 0 1.5 0V4.56Z" />
+                            </svg>
+                        </button>
+                        <button class="w-5 h-5 flex justify-center items-center bg-white rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
+                                <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+<!-- Gradient backgrounds -->
+<!-- Image backgrounds -->
+            <div class="p-1">
+                <h1 class="mb-2 text-xs text-gray-300">Images</h1>
+                <div class="flex justify-between gap-2 py-2 lg:justify-between md:justify-start">
+                    <div class="border-r-[1px] w-full flex justify-start items-center gap-2 pr-2 border-dashed">
+                        <button class="rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <img class="w-7 h-7 rounded-full" src="./public/images/layers.png" alt="image" loading="lazy">
+                        </button>
+                        <button class="rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <img class="w-7 h-7 rounded-full" src="./public/images/layers.png" alt="image" loading="lazy">
+                        </button>
+                        <button class="rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <img class="w-7 h-7 rounded-full" src="./public/images/layers.png" alt="image" loading="lazy">
+                        </button>
+                        <button class="rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <img class="w-7 h-7 rounded-full" src="./public/images/layers.png" alt="image" loading="lazy">
+                        </button>
+                        <button class="rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <img class="w-7 h-7 rounded-full" src="./public/images/layers.png" alt="image" loading="lazy">
+                        </button>
+                        <button class="rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <img class="w-7 h-7 rounded-full" src="./public/images/layers.png" alt="image" loading="lazy">
+                        </button>
+                    </div>
+                    <div class="flex justify-between items-center gap-2">
+                        <button class="w-5 h-5 flex justify-center items-center bg-white rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-3">
+                                <path d="m13.28 7.78 3.22-3.22v2.69a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 0-.75-.75h-4.5a.75.75 0 0 0 0 1.5h2.69l-3.22 3.22a.75.75 0 0 0 1.06 1.06ZM2 17.25v-4.5a.75.75 0 0 1 1.5 0v2.69l3.22-3.22a.75.75 0 0 1 1.06 1.06L4.56 16.5h2.69a.75.75 0 0 1 0 1.5h-4.5a.747.747 0 0 1-.75-.75ZM12.22 13.28l3.22 3.22h-2.69a.75.75 0 0 0 0 1.5h4.5a.747.747 0 0 0 .75-.75v-4.5a.75.75 0 0 0-1.5 0v2.69l-3.22-3.22a.75.75 0 1 0-1.06 1.06ZM3.5 4.56l3.22 3.22a.75.75 0 0 0 1.06-1.06L4.56 3.5h2.69a.75.75 0 0 0 0-1.5h-4.5a.75.75 0 0 0-.75.75v4.5a.75.75 0 0 0 1.5 0V4.56Z" />
+                            </svg>
+                        </button>
+                        <button class="w-5 h-5 flex justify-center items-center bg-white rounded-full ring-indigo-500 duration-300 hover:ring-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4">
+                                <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+<!-- Image backgrounds -->
+
+        
+        </section>
+<!-- Backgrounds -->
+
+    </section>
+<!-- Drawer contents -->
+
+</div>
+<!-- Drawer -->
+
+
+
+
+
+    <!-- Scripts -->
+
+    <!-- Dom to image lib -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="/public/scripts/dom_to_img/dom_to_image.min.js"></script>
+
+    <!-- Custom scripts -->
+    <script src="/public/scripts/main.js"></script>
+
+    <!-- Particles -->
+    <script src="/public/scripts/particles/particles.js"></script>
+    <script src="/public/scripts/particles/app.js"></script>
+</body>
+</html>
