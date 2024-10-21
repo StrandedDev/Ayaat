@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'amiri_quran';
+    src: url('../fonts/amiri_quran.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'arabic';
+    src: url('../fonts/arabic_font.woff2') format('woff');
+}
+
+@font-face {
+    font-family: 'noto_sans_bengali';
+    src: url('../fonts/noto_sans_bengali.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'rubik';
+    src: url('../fonts/rubik.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'rubik_bold';
+    src: url('../fonts/rubik_bold.ttf') format('truetype');
+}
+
+
+

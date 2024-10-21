@@ -2,32 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'amiri_quran';
-    src: url('../public/fonts/amiri_quran.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'arabic';
-    src: url('../public/fonts/arabic_font.woff2') format('woff');
-}
-
-@font-face {
-    font-family: 'noto_sans_bengali';
-    src: url('../public/fonts/noto_sans_bengali.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'rubik';
-    src: url('../public/fonts/rubik.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'rubik_bold';
-    src: url('../public/fonts/rubik_bold.ttf') format('truetype');
-}
-
-
-
-
-
